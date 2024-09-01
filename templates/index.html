@@ -6,6 +6,22 @@
     <title>TODO App</title>
 </head>
 <body>
-    <h1>Flask TODO App</h1>
+    <h1>Flask Todo App</h1>
+
+    <form action="" method="post">
+        <input type="text" name="task"/>
+        <input type="submit" value="submit"/>
+    </form>
+
+    <table border=1>
+        <tr>
+            <td>TASKS</td>
+        </tr>
+        {% for task in tasks%}
+            <tr>
+                <td>{{ task }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
