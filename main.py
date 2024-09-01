@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, request, render_template
 
 
 app = Flask(__name__)
@@ -6,40 +6,38 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello, World!"
+    return render_template("index.html")
 
 
-@app.route("/vespine/")
-def about_vespine():
-    info = """
-    Hello, my name is Vespine or in short you can call me Ve.
-    I am from India and I am 14 years old.
-    I have been coding since 4 years.
-    """
-    return info
+@app.route("/user/<username>")
+def user_page(username):
+   return render_template("user.html", name=username)
 
 
-@app.route("/home")
-def home_page():
-    return "<h1>This is a home page.</h1>"
+@app.route('/success/<name>')
+def success(name):
+   return 'welcome %s' % name
 
 
-@app.route("/guest/<guest>")
-def hello_guest(guest):
-   return f"Hello {guest} as Guest"
-
-
-@app.route("/admin")
-def hello_admin():
-   return 'L Admin'
-
-
-@app.route("/user/<name>")
-def hello_user(name):
-   if name =="admin":
-      return redirect(url_for("hello_admin"))
+@app.route('/login',methods = ['POST', 'GET'])
+def login():
+   if request.method == 'POST':
+      user = request.form['nm']
+      return redirect(url_for('success', name = user))
    else:
-      return redirect(url_for("hello_guest", guest = name))
+      user = request.args.get('nm')
+      return redirect(url_for('success', name = user))
+   
+
+@app.route("/score/<int:score>")
+def score(score):
+   return render_template("score.html", marks=score)
+
+
+@app.route("/result")
+def result():
+   report_card = {"Maths": 80, "Physics": 77, "Chemistry": 78, "Computer Science": 80, "English": 70}
+   return render_template("result.html", result=report_card)
 
 
 if __name__ == "__main__":
