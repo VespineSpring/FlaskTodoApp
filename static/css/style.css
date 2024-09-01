@@ -1,0 +1,99 @@
+:root {
+    --text: #050315;
+    --background: #fbfbfe;
+    --primary: #2f27ce;
+    --secondary: #dedcff;
+    --accent: #433bff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+html {font-size: 100%;}
+h1 {font-size: 4.210rem;}
+h2 {font-size: 3.158rem;}
+h3 {font-size: 2.369rem;}
+h4 {font-size: 1.777rem;}
+h5 {font-size: 1.333rem;}
+small {font-size: 0.750rem;}
+
+body {
+    background-color: var(--background);
+}
+
+.title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 18px;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.text-area {
+    font-size: 1.333rem;
+    color: var(--text);
+    background-color: var(--background);
+    height: 40px;
+    width: 540px;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    outline-color: var(--primary);
+    padding: 0 20px 0 20px;
+}
+
+.submit-button {
+    font-size: 1.333rem;
+    font-weight: 700;
+    height: 40px;
+    width: 100px;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25%;
+}
+
+.tasks-checkbox {
+    height: 20px;
+    width: 20px;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 10px;
+}
+
+.task-item h4 {
+    margin: 0;
+}
+
+.tasks-checkbox:checked + .task {
+    color: gray;
+    text-decoration: line-through;
+    font-style: italic;
+}
