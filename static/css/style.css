@@ -66,3 +66,34 @@ small {font-size: 0.750rem;}
     font-weight: 700;
     cursor: pointer;
 }
+
+.tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 60px 28%;
+}
+
+.tasks-wrapper .task-block {
+    display: flex;
+    gap: 16px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--text);
+    border-spacing: 400px;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.tasks-wrapper .task-block .checkbox {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+}
+
+.checkbox:checked + .task {
+    color: grey;
+    text-decoration: line-through;
+    font-style: italic;
+}
