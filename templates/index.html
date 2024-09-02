@@ -7,22 +7,27 @@
     <title>TODO App</title>
 </head>
 <body>
-    <h2 class="title">Flask ToDo App</h2>
-
-    <div class="form-wrapper">
-        <form method="post">
-            <input class="text-area" type="text" name="task"/>
-            <input class="submit-button" type="submit" value="Add"/>
-        </form>
-    </div>
-    <div class="tasks">
-        {% for task in tasks %}
-            <div class="task-item">
-                <input type="checkbox" class="tasks-checkbox">
-                <h4 class="task">{{ task }}</h4>
-                <hr>
-            </div>
-        {% endfor %}
-    </div>
+    <header>
+        <h2 class="title">Flask Todo App</h2>
+    </header>
+    <main>
+        <div class="form-wrapper">
+            <form method="post">
+                <input class="text-area" type="text" name="task" placeholder="Add Task..."/>
+                <input class="add-button" type="submit" value="ADD"/>
+            </form>
+        </div>
+        <div class="tasks-wrapper">
+            {% for task in tasks %}
+                <div class="task-block">
+                    <input type="checkbox">
+                    <p class="task">{{ task }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <small>© Made By Vespine</small>
+    </footer>
 </body>
 </html>
