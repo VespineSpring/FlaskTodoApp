@@ -9,15 +9,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 body {
-  font-family: sans-serif;
-  font-weight: 400;
-  background-color: var(--background);
-  color: var(--text);
+    font-family: sans-serif;
+    font-weight: 400;
+    background-color: var(--background);
+    color: var(--text);
+    display: grid;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: sans-serif;
-  font-weight: 700;
+    font-family: sans-serif;
+    font-weight: 700;
 }
 
 html {font-size: 100%;}
@@ -85,11 +86,26 @@ small {font-size: 0.750rem;}
 }
 
 .tasks-wrapper .task-block .checkbox {
+    appearance: none;
     height: 25px;
     width: 25px;
     cursor: pointer;
     border: 1px solid var(--text);
     border-radius: 5px;
+}
+
+.tasks-wrapper .task-block .checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    outline-color: var(--accent);
+}
+
+.tasks-wrapper .task-block .checkbox:checked::after {
+    content: '\2714';
+    color: white;
+    display: block;
+    text-align: center;
+    font-size: 16px;
 }
 
 .checkbox:checked + .task {

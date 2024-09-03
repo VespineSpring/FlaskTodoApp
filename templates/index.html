@@ -18,10 +18,10 @@
             </form>
         </div>
         <div class="tasks-wrapper">
-            {% for task in tasks %}
+            {% for key in tasks %}
                 <div class="task-block">
-                    <input class="checkbox" type="checkbox">
-                    <p class="task">{{ task }}</p>
+                    <input class="checkbox" type="checkbox" {% if key.status == "complete" %} checked {% endif %}>
+                    <p class="task">{{ key.task }}</p>
                 </div>
             {% endfor %}
         </div>

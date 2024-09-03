@@ -1,6 +1,17 @@
 [
-    "This APP is toooo coool",
-    "I am cool",
-    "W TODO list",
-    "a"
+    {
+        "id": "7caf278d-e8d5-4e34-881d-3c17818184be",
+        "task": "Task #1",
+        "status": "complete"
+    },
+    {
+        "id": "d750057d-ca8f-4daf-989b-1625701a591b",
+        "task": "Task #2",
+        "status": "incomplete"
+    },
+    {
+        "id": "34dac3c6-9b5a-4e98-87d8-5f65d62f82b1",
+        "task": "Task #3",
+        "status": "incomplete"
+    }
 ]

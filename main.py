@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, request, render_template
 import json
+import uuid
 import os
 
 
@@ -31,11 +32,17 @@ def save_task(task):
       return
    
    initialize_task_file()
+
+   task_dict = {
+      "id": str(uuid.uuid4()),
+      "task": task,
+      "status": "incomplete"
+   }
    
    with open(TASK_FILE, "r") as file:
       data = json.load(file)
 
-   data.append(task)
+   data.append(task_dict)
 
    with open(TASK_FILE, "w") as file:
       json.dump(data, file, indent=4)
