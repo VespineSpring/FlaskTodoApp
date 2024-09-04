@@ -20,7 +20,7 @@
         <div class="tasks-wrapper">
             {% for key in tasks %}
                 <div class="task-block">
-                    <input class="checkbox" type="checkbox" {% if key.status == "complete" %} checked {% endif %}>
+                    <input class="checkbox" type="checkbox" data-id={{ key.id }} {% if key.status == "complete" %} checked {% endif %}>
                     <p class="task">{{ key.task }}</p>
                 </div>
             {% endfor %}
@@ -29,5 +29,25 @@
     <footer>
         <small>© Made By Vespine</small>
     </footer>
+    <script>
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const taskId = this.getAttribute('data-id');
+                const isChecked = this.checked;
+
+                fetch('/update_status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id: taskId, status: isChecked ? 'complete' : 'incomplete' }),
+                }).then(response => {
+                    if (!response.ok) {
+                        alert('Failed to update task status');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

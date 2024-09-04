@@ -66,6 +66,8 @@ small {font-size: 0.750rem;}
     border-radius: 5px;
     font-weight: 700;
     cursor: pointer;
+    background-color: var(--primary);
+    color: white;
 }
 
 .tasks-wrapper {
